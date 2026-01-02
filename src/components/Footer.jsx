@@ -5,7 +5,7 @@ export default function Footer() {
     <footer className="bg-light text-center py-3 mt-auto">
       <Container>
         <p className="mb-0 text-muted">
-          © {new Date().getFullYear()} Ganesh Diary. All rights reserved.
+          © {new Date().getFullYear()} Shri Ganesh Diary. All rights reserved.
         </p>
       </Container>
     </footer>
