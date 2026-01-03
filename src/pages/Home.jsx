@@ -6,12 +6,25 @@ export default function Home() {
   const [bhav, setBhav] = useState(null);
 
   useEffect(() => {
+    //Load saved Bhav from localstorage
     const savedBhav = localStorage.getItem("milkBhav");
     if (savedBhav) setBhav(savedBhav);
+
+    //Auto Update Bhav When Admin Changes it (Live Sync)
+    const handleStorageChange = (e) => {
+      if (e.key === "milkBhav") setBhav(e.newValue);
+    };
+    window.addEventListener("storage", handleStorageChange);
+
+    return () => window.removeEventListener("storage", handleStorageChange);
   }, []);
 
   const products = [
-    { name: "Fresh Milk", image: "./images/milk.jpg", price: 50 },
+    {
+      name: "Fresh Milk",
+      image: "./images/milk.jpg",
+      price: bhav ? `₹${bhav} / Liter` : "--",
+    },
     { name: "Breads", image: "./images/bread.png", price: 65 },
     {
       name: "All Biscuits ",
@@ -52,7 +65,7 @@ export default function Home() {
                   </Card.Text>
                 ) : (
                   <Card.Text className="text-muted">
-                    Bhav not set yet. Please check again later.
+                    ⚠️ Bhav not set yet. Please check again later.
                   </Card.Text>
                 )}
                 <Button variant="outline-primary" href="/calculator">

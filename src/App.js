@@ -5,6 +5,7 @@ import Footer from "./components/Footer";
 //Pages
 import HomePage from "./pages/Home";
 import AboutPage from "./pages/About";
+import ProductPage from "./pages/Products";
 
 //CSS
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -17,6 +18,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
+        <Route path="/products" element={<ProductPage />} />
       </Routes>
       <Footer />
     </div>
