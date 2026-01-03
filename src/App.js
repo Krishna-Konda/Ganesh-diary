@@ -6,6 +6,7 @@ import Footer from "./components/Footer";
 import HomePage from "./pages/Home";
 import AboutPage from "./pages/About";
 import ProductPage from "./pages/Products";
+import ContactPage from "./pages/Contact";
 
 //CSS
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -19,6 +20,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/products" element={<ProductPage />} />
+        <Route path="/contact" element={<ContactPage />} />
       </Routes>
       <Footer />
     </div>
