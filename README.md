@@ -28,4 +28,4 @@ I built it while learning React, Bootstrap, and JavaScript step by step.
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/your-username/shri-ganesh-milk-center.git
+git clone https://github.com/Krishna-Konda/Ganesh-diary.git
