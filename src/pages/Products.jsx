@@ -20,6 +20,11 @@ const ProductPage = () => {
       image: "./images/amul-cheese.png",
       price: "₹17/per piece ",
     },
+    {
+      name: "Amul Milk Packet",
+      image: "./images/AmulPacket.png",
+      price: "₹30 per Packet",
+    },
   ];
 
   const otherProducts = [

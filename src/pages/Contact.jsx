@@ -14,7 +14,7 @@ const ContactPage = () => {
       {/* Contact Info */}
       <Row className="justify-content-center">
         <Col md={6}>
-          <Card className="shadow-sm border-0">
+          <Card className="shadow-sm border-1">
             <Card.Body className="text-center">
               <Card.Title className="text-primary fs-4 mb-3">
                 Shri Ganesh Milk Center

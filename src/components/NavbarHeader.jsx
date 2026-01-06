@@ -30,6 +30,12 @@ export default function NavbarHeader() {
             <Nav.Link as={Link} to="/contact">
               Contact
             </Nav.Link>
+            <Nav.Link as={Link} to="/admin">
+              AdminPanel
+            </Nav.Link>
+            <Nav.Link as={Link} to="/MilkCalculator">
+              Milk Calculation
+            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
