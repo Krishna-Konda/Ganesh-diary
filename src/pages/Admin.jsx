@@ -33,19 +33,15 @@ export default function AdminPage() {
   };
 
   //Handle Bhav Update
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!bhav || isNaN(bhav) || bhav <= 0) {
-      setMessage("⚠️ Please enter a valid numeric value for bhav.");
-      return;
-    }
-
-    const now = new Date().toLocaleString();
-    localStorage.setItem("milkBhav", bhav);
-    localStorage.setItem("bhavUpdatedAt", now);
-    setLastUpdated(now);
-
-    setMessage(`✅ Today's bhav saved successfully: ₹${bhav}/Liter`);
+    const res = await fetch("/api/bhav", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ newBhav: bhav }),
+    });
+    const data = await res.json();
+    setMessage(data.message);
   };
 
   //---UI---

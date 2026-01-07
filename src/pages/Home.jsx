@@ -6,17 +6,10 @@ export default function Home() {
   const [bhav, setBhav] = useState(null);
 
   useEffect(() => {
-    //Load saved Bhav from localstorage
-    const savedBhav = localStorage.getItem("milkBhav");
-    if (savedBhav) setBhav(savedBhav);
-
-    //Auto Update Bhav When Admin Changes it (Live Sync)
-    const handleStorageChange = (e) => {
-      if (e.key === "milkBhav") setBhav(e.newValue);
-    };
-    window.addEventListener("storage", handleStorageChange);
-
-    return () => window.removeEventListener("storage", handleStorageChange);
+    fetch("/api/bhav")
+      .then((res) => res.json())
+      .then((data) => setBhav(data))
+      .catch(() => console.log("Error Fetching Bhav"));
   }, []);
 
   const products = [

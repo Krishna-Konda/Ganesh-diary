@@ -18,15 +18,10 @@ export default function MilkCalculator() {
   ];
 
   useEffect(() => {
-    const savedBhav = localStorage.getItem("milkBhav");
-    if (savedBhav) setBhav(parseFloat(savedBhav));
-
-    // auto-update if admin changes the bhav
-    const handleStorageChange = (e) => {
-      if (e.key === "milkBhav") setBhav(parseFloat(e.newValue));
-    };
-    window.addEventListener("storage", handleStorageChange);
-    return () => window.removeEventListener("storage", handleStorageChange);
+    fetch("/api/bhav")
+      .then((res) => res.json())
+      .then((data) => setBhav(data))
+      .catch(() => console.log("Error Fetching Bhav"));
   }, []);
 
   // Rupee to ml

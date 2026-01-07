@@ -5,8 +5,10 @@ const ProductPage = () => {
   const [milkPrice, setMilkPrice] = useState(null);
 
   useEffect(() => {
-    const savedBhav = localStorage.getItem("milkBhav");
-    if (savedBhav) setMilkPrice(savedBhav);
+    fetch("/api/bhav")
+      .then((res) => res.json())
+      .then((data) => setMilkPrice(data))
+      .catch(() => console.log("Error Fetching Bhav "));
   }, []);
 
   const dairyProducts = [
