@@ -1,36 +1,53 @@
-let currentBhav = 76;
+// api/bhav.js
+
+let currentBhav = 76; // default value
 let lastUpdated = new Date().toLocaleString();
 
-export default async function handler(request, response) {
-  //Handle GEt request
-  if (request.method === "GET") {
-    return response.status(200).json({
+export default function handler(req, res) {
+  // Handle GET - return current bhav
+  if (req.method === "GET") {
+    return res.status(200).json({
       bhav: currentBhav,
       lastUpdated,
     });
   }
 
-  if (request.method === "POST") {
-    //Admin UPDate the Bhav
+  // Handle POST - update bhav
+  if (req.method === "POST") {
     try {
-      const body = await request.json();
+      let body = "";
 
-      if (!body.newBhav || isNaN(body.newBhav)) {
-        return response.status(400).json({ message: "Invalid Bhav Entered" });
-      }
-      currentBhav = Number(body.newBhav);
-      lastUpdated = new Date().toLocaleString();
-
-      return response.status(200).json({
-        message: "Bhav Updated Successfully",
-        bhav: currentBhav,
-        lastUpdated,
+      // Gather incoming data
+      req.on("data", (chunk) => {
+        body += chunk.toString();
       });
-    } catch (err) {
-      return response
-        .status(500)
-        .json({ message: "Error While Updating Bhav" });
+
+      req.on("end", () => {
+        try {
+          const parsed = JSON.parse(body);
+          if (!parsed.newBhav || isNaN(parsed.newBhav)) {
+            return res.status(400).json({ message: "Invalid bhav value" });
+          }
+
+          currentBhav = Number(parsed.newBhav);
+          lastUpdated = new Date().toLocaleString();
+
+          return res.status(200).json({
+            message: "✅ Bhav updated successfully!",
+            bhav: currentBhav,
+            lastUpdated,
+          });
+        } catch (err) {
+          console.error("JSON Parse Error:", err);
+          return res.status(400).json({ message: "Invalid JSON format" });
+        }
+      });
+    } catch (error) {
+      console.error("Server Error:", error);
+      return res.status(500).json({ message: "Internal Server Error" });
     }
+  } else {
+    // Method not allowed
+    return res.status(405).json({ message: "Method Not Allowed" });
   }
-  return response.status(405).json({ message: "Method Not Found" });
 }
