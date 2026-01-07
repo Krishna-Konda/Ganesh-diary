@@ -1,35 +1,29 @@
-# 🥛 Shri Ganesh Milk Center – My First React App
+# Ganesh Diary 🥛
 
-This is my first **React project**, made for my own dairy business **Shri Ganesh Milk Center (Ganesh Diary)**.  
-It shows daily milk prices (bhav), lists products, and has a live milk calculator that updates automatically when the bhav changes.  
-I built it while learning React, Bootstrap, and JavaScript step by step.
+My first React project built for my dairy business **Shri Ganesh Milk Center**.
 
----
+This website shows:
 
-## ✨ Features
+- Daily milk bhav (price per liter)
+- Product listings
+- A live milk calculator that updates automatically when the bhav changes
 
-- 📅 Dynamic **Daily Milk Bhav** (updated by admin)
-- 🧮 **Milk Calculator** (₹10–₹100 & ¼L–3L auto conversions)
-- 🛒 **Products Page** for dairy & grocery items
-- 👨‍💼 **Admin Panel** (PIN protected)
-- 🧾 **About Page** with my business story
-- 📍 **Contact Page** with address, timings & Google Maps link
+Built while learning **React**, **Bootstrap**, and **React Hooks** step by step.
 
 ---
 
-## 🧰 Tech Stack
+## Tech Stack
 
-- ⚛️ React
-- 🎨 React Bootstrap
-- 🧭 React Router DOM
-- 💾 LocalStorage / SessionStorage (for bhav & login data)
+- React
+- React Bootstrap
+- JavaScript
+- HTML & CSS
 
 ---
 
-## 🚀 Getting Started
-
-### 1. Clone the Repository
+## Getting Started
 
 ```bash
-git clone https://github.com/your-username/shri-ganesh-milk-center.git
+npm install
+npm start
 ```
