@@ -20,7 +20,7 @@ export default function MilkCalculator() {
   useEffect(() => {
     fetch("/api/bhav")
       .then((res) => res.json())
-      .then((data) => setBhav(data))
+      .then((data) => setBhav(data.bhav))
       .catch(() => console.log("Error Fetching Bhav"));
   }, []);
 

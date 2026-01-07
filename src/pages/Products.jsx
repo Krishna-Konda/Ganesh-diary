@@ -7,8 +7,8 @@ const ProductPage = () => {
   useEffect(() => {
     fetch("/api/bhav")
       .then((res) => res.json())
-      .then((data) => setMilkPrice(data))
-      .catch(() => console.log("Error Fetching Bhav "));
+      .then((data) => setMilkPrice(data.bhav))
+      .catch(() => console.log("Error Fetching Bhav"));
   }, []);
 
   const dairyProducts = [
