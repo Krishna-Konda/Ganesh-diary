@@ -15,10 +15,13 @@ export default function AdminPage() {
     const session = sessionStorage.getItem("adminAuth");
     if (session === "true") setIsAuthenticated(true);
 
-    const savedBhav = localStorage.getItem("milkBhav");
-    const savedDate = localStorage.getItem("bhavUpdatedAt");
-    if (savedBhav) setBhav(savedBhav);
-    if (savedDate) setLastUpdated(savedDate);
+    fetch("/api/bhav")
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.bhav) setBhav(data.bhav);
+        if (data.lastUpdated) setLastUpdated(data.lastUpdated);
+      })
+      .catch((err) => console.log("Error Fetching Bhav", err));
   }, []);
 
   //Handle Login
@@ -51,7 +54,7 @@ export default function AdminPage() {
         //Login Screen
         <Card
           className="shadow-sm border-1 mx-auto"
-          style={{ maxwidth: "400px" }}>
+          style={{ maxWidth: "400px" }}>
           <Card.Body className="text-center">
             <h3 className="mb-3 ">🔐 Admin Login</h3>
             <Form onSubmit={handleLogin}>
