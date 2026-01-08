@@ -31,7 +31,7 @@ const ContactPage = () => {
               <Card.Text className="mb-2">
                 <strong>📞 Phone:</strong>
                 <br />
-                +91 98765 43210
+                +91 98905 20455
               </Card.Text>
 
               <Card.Text className="mb-2">
