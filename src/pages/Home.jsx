@@ -61,7 +61,7 @@ export default function Home() {
                     ⚠️ Bhav not set yet. Please check again later.
                   </Card.Text>
                 )}
-                <Button variant="outline-primary" href="/calculator">
+                <Button variant="outline-primary" href="/MilkCalculator">
                   Check ML For Your Amount
                 </Button>
               </Card.Body>

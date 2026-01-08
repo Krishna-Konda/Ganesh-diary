@@ -36,7 +36,7 @@ const ProductPage = () => {
     { name: "Anmol Khari", image: "./images/anmol_khari.png" },
     { name: "Makkhan Butter", image: "./images/makkhan.png" },
     { name: "Jeera Butter", image: "./images/Jeera_Butter.png" },
-    { name: "Tea Butter", image: "./images/Tea_Butter.png" },
+    { name: "Tea Butter", image: "./images/Tea_butter.png" },
     { name: "Maggie", image: "./images/maggie.png" },
   ];
 
